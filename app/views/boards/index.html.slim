@@ -12,11 +12,15 @@ table.ui.selectable.table
       th 作成者
       th 作成日時
       th 更新日時 
+      th
+      th
   tbody
     - @boards.each do |board|
       tr
         td = board.id
         td = board.title
         td = board.name
-        td = board.created_at
-        td = board.updated_at
+        td = board.created_at.to_s(:datetime_jp)
+        td = board.updated_at.to_s(:datetime_jp)
+        td = link_to "詳細", board_path(board), class: "ui button"
+        td = link_to "削除", board_path(board),method: :delete, data: {confirm: "#{board.title}を削除してもよろしですか？"}, class: "ui button"

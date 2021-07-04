@@ -1,2 +1,17 @@
-h1 Boards#show
-p Find me in app/views/boards/show.html.slim
+.ui.grid
+  .two.column.row.title_header
+    .column.title
+      h3 掲示板一覧
+    .column.ui.right.aligned.header
+      = link_to "編集",edit_board_path, class: "ui button"
+.ui.segment
+  .ui.segment
+    .ui.grid
+      .column
+        = @board.title
+  .ui.segment
+    .ui.grid
+      .column
+        = @board.body
+      .column
+        = @board.name

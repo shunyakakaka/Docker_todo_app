@@ -1,5 +1,18 @@
-h1 Boards#edit
-p Find me in app/views/boards/edit.html.slim
-
-.ui.column
-  p | 片田竣也
+.ui.grid
+  .two.column.row.title_header
+    .column.title
+      h3 掲示板編集
+    .column.ui.right.aligned.header
+      = link_to "掲示板一覧",boards_path, class: "ui button"
+.ui.form
+  = form_with model: @board, method: :patch do |f|
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :body
+      = f.text_area :body
+    = f.submit "編集", class: "ui blue button"

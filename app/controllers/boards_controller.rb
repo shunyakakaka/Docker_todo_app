@@ -14,10 +14,26 @@ class BoardsController < ApplicationController
     redirect_to boards_path
   end
 
-  def edit
+  def show
+    @board = Board.find(params[:id])
   end
 
-  def show
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    @board = Board.find(params[:id])
+    @board.update(board_params)
+    flash[:notice] = "編集しました"
+    redirect_to board_path(@board)
+  end
+
+  def destroy
+    board = Board.find(params[:id])
+    board.delete
+    flash[:notice] = "#{board.title}を削除しました"
+    redirect_to boards_path
   end
   private
 
