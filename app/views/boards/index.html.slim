@@ -1,0 +1,22 @@
+.ui.grid
+  .two.column.row.title_header
+    .column.title
+      h3 掲示板一覧
+    .column.ui.right.aligned.header
+      = link_to "新規作成",boards_path, class: "ui button"
+table.ui.table
+  thead
+    tr
+      th ID 
+      th タイトル
+      th 作成者
+      th 作成日時
+      th 更新日時 
+  tbody
+    tr
+      td 1 
+      td 雑談掲示板
+      td Taro
+      td 2021年7月4日
+      td 2021年7月11日
+    
